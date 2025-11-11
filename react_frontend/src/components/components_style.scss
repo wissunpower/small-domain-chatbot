@@ -1,0 +1,143 @@
+/****  Header.tsx  ****/
+.app-header {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  width: 900px;
+
+  &__main {
+    display: flex;
+    align-items: flex-end;
+    width: 50%;
+    background-color: theme-color(header-big-block);
+    color: theme-color(text-contrast);
+
+    p {
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      font-size: 35px;
+      font-weight: 600;
+      padding-bottom: 3px;
+    }
+  }
+
+  &__sub {
+    display: flex;
+    align-items: flex-end;
+    width: 50%;
+    color: theme-color(text-main);
+
+    div {
+      display: flex;
+      align-items: flex-end;
+      padding-left: 25px;
+      width: 100%;
+      // position: absolute;
+      height: 50px;
+      background-color: theme-color(header-narrow-block);
+      p {
+        text-align: left;
+        margin: 0;
+        font-size: 25px;
+        font-weight: 400;
+        padding-bottom: 5px;
+        letter-spacing: 3px;
+      }
+    }
+  }
+}
+
+/****  IndexQuery.tsx  ****/
+.query {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 15px;
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: theme-color(primary);
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  &__loader {
+    align-self: center;
+    opacity: 0;
+    transition: opacity 300ms linear;
+
+    &--loading {
+      opacity: 1;
+    }
+  }
+
+  &__results {
+    opacity: 1;
+    transition: opacity 300ms linear;
+    background-color: theme-color(primary);
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 5px;
+    height: 20vh;
+    overflow-x: scroll;
+
+    &--loading {
+      opacity: 0;
+    }
+  }
+
+  &__sources {
+    opacity: 1;
+    transition: opacity 300ms linear;
+    background-color: theme-color(primary);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    height: calc(26.3vh - 22px);
+    padding: 5px;
+    text-align: left;
+    overflow-x: scroll;
+  }
+  
+  &--loading {
+    opacity: 0;
+  }
+  
+  &__item {
+    height: 100px;
+    border-bottom: 1px solid theme-color(text-main);
+    margin: 0px;
+    width: 100%;
+
+      &:first-child {
+        height: 40px;
+        border-bottom: 1px solid theme-color(text-main) !important;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &__id {
+        font-size: 25px;
+        margin-bottom: 3px;
+        margin-top: 0;
+      }
+
+      &__text {
+        font-size: 12px;
+        margin-bottom: 3px;
+        margin-top: 0;
+      }
+
+      &__footer {
+        font-size: 10px;
+        margin: 0;
+      }
+    }
+}
