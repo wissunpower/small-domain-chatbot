@@ -15,8 +15,12 @@ def build_llm_model(cfg: dict) -> FunctionCallingLLM | CustomLLM:
     model_name: str = cfg['llm_model_name']
     
     if Ollama.__name__.lower() == llm_platform.lower():
+        host: str = cfg['ollama_host']
+        port: str = str(cfg['ollama_port'])
+        base_url: str = "http://" + host + ":" + port
         llm = Ollama(
             model=model_name,
+            base_url= base_url,
             request_timeout=360.0,
             # Manually set the context window to limit memory usage
             context_window=12000,
