@@ -26,7 +26,7 @@ def query_index(query_text):
         ).query(query_text)
 
     end_time = datetime.datetime.now()
-    logger.debug(f'{end_time} elapsed for query is {end_time - start_time}')
+    logger.info(f'{end_time} elapsed for query is {end_time - start_time}')
 
     return response
 

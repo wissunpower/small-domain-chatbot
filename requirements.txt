@@ -1,0 +1,8 @@
+chromadb
+flask
+flask-cors
+llama-index-core
+llama-index-embeddings-huggingface
+llama-index-llms-huggingface
+llama-index-llms-ollama
+llama-index-vector-stores-chroma
