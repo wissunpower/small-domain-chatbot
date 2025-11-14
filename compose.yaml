@@ -8,7 +8,7 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 services:
-  backend:
+  back-end:
     build:
       context: .
     environment:
@@ -17,6 +17,8 @@ services:
       - llm_model_name=${llm_model_name}
     ports:
       - 5601:5601
+    volumes:
+      - back-end-logs:/app/_log
     depends_on:
       - ollama
   
@@ -34,6 +36,17 @@ services:
       ollama pull $${llm_model_name} && \
       wait"]
 
+  front-end:
+    build:
+      context: ./react_frontend
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8080:3000
+    depends_on:
+      - back-end
+
 
 volumes:
   ollama-data:
+  back-end-logs:

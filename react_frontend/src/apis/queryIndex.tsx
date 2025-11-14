@@ -12,7 +12,9 @@ export type QueryResponse = {
 };
 
 const queryIndex = async (query: string): Promise<QueryResponse> => {
-    const queryURL = new URL("http://localhost:5601/query?");
+    const backendHost = process.env.REACT_APP_BACKEND_HOST;
+    const backendPort = process.env.REACT_APP_BACKEND_PORT;
+    const queryURL = new URL("http://" + backendHost + ":" + backendPort + "/query?");
     queryURL.searchParams.append("text", query);
 
     const response = await fetch(queryURL, { mode: "cors" });
