@@ -11,6 +11,7 @@ services:
   back-end:
     build:
       context: .
+    image: small-domain-chatbot-back-end
     environment:
       - ollama_host=${ollama_host}
       - ollama_port=${ollama_port}
@@ -32,13 +33,14 @@ services:
     volumes:
       - ollama-data:/root/.ollama
     entrypoint: ["/bin/bash", "-c", "\
-      ollama serve & sleep 5 && \
+      ollama serve && \
       ollama pull $${llm_model_name} && \
       wait"]
 
   front-end:
     build:
       context: ./react_frontend
+    image: small-domain-chatbot-front-end
     environment:
       NODE_ENV: production
     ports:
